@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1730200458932",
+    "name": "Shawn",
+    "sugar": 1,
+    "milk": false
+  },
+  {
+    "id": "1730200466301",
+    "name": "Reuben",
+    "sugar": 0,
+    "milk": true
+  },
+  {
+    "id": "1730200474232",
+    "name": "JP",
+    "sugar": 2,
+    "milk": false
+  },
+  {
+    "id": "1730200480662",
+    "name": "Andy",
+    "sugar": 1,
+    "milk": false
+  },
+  {
+    "id": "1730200487224",
+    "name": "Phill",
+    "sugar": 2,
+    "milk": true
+  },
+  {
+    "id": "1730200501788",
+    "name": "Chris",
+    "sugar": 0,
+    "milk": true
+  },
+  {
+    "id": "1730200510893",
+    "name": "Laure",
+    "sugar": 0,
+    "milk": true
+  },
+  {
+    "id": "1730200524149",
+    "name": "Kyle",
+    "sugar": 1,
+    "milk": false
+  },
+  {
+    "id": "1730200603435",
+    "name": "Ekrem",
+    "sugar": 0,
+    "milk": true
+  }
+]
