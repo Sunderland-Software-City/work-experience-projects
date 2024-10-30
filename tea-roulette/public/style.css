@@ -1,3 +1,6 @@
+.body {
+  background-color: rgb(252, 233, 240);
+}
 .wheel-container {
   position: relative;
   width: 300px;
@@ -18,32 +21,21 @@
 .name-wheel {
   width: 100%;
   height: 100%;
-  border: 3px solid #0d6efd;
+  border: 1px solid #ffffff;
   border-radius: 50%;
   position: relative;
   transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* .name-slice {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: 0 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 5px;
-  white-space: nowrap;
-
-  transform: rotate(calc(var(--slice-id) * 1deg)) translate(-9rem);
-} */
 .name-slice {
   position: absolute;
   left: 50%;
   top: 50%;
   transform-origin: 0 0;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 5px;
+  background-color: transparent;
+  font-weight: bold;
   white-space: nowrap;
   /* Update the translation to align with pointer */
   transform: rotate(calc(var(--slice-id) * 1deg)) translate(-8.9rem);
@@ -65,4 +57,23 @@
 
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+.spinnerCard {
+  background-image: url("./images/tea-roulette-background.jpg");
+  background-size: cover; /* Makes the image cover the whole card */
+  background-position: center; /* Centers the image within the card */
+}
+.spinBtn {
+  margin-bottom: 0rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: white 3px solid;
+  background-color: #ffffff71;
+}
+.spinBtn:hover {
+  font-weight: bold;
+  background-color: rgb(255, 188, 218);
+}
+.card {
+  background-color: rgb(252, 233, 240);
 }
