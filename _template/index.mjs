@@ -1,9 +1,9 @@
+import cors from "cors";
+import "dotenv/config";
 import express from "express";
 import nunjucks from "nunjucks";
-import "dotenv/config";
 import api from "./routes/api.mjs";
 import web from "./routes/web.mjs";
-import cors from "cors";
 
 const app = express();
 app.use(cors());
@@ -20,9 +20,9 @@ nunjucks.configure("views", {
 
 app.set("view engine", "njk");
 
-const PORT = process.env.PORT;
+const APP_PORT = process.env.APP_PORT ?? 3000;
 
-app.listen(3005, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(APP_PORT, () => {
+  console.log(`Server running on http://localhost:${APP_PORT}`);
 });
 
