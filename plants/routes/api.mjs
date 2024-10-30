@@ -1,12 +1,9 @@
 import express from 'express';
+import { getAllPlants } from '../services/plants.mjs';
 
 const apiRoutes = express.Router();
 
-// TODO Write your API code here.
-apiRoutes.get('/', (req, res) => {
-	console.log('Add some API handling here!');
-
-	return res.json({ hello: 'world!' });
-});
+// Get all plants
+apiRoutes.get('/plants', getAllPlants);
 
 export default apiRoutes;

@@ -20,7 +20,7 @@ nunjucks.configure('views', {
 
 app.set('view engine', 'njk');
 
-const APP_PORT = process.env.APP_PORT ?? 3000;
+const APP_PORT = process.env.APP_PORT ?? 3001;
 
 app.listen(APP_PORT, () => {
 	console.log(`Server running on http://localhost:${APP_PORT}`);
