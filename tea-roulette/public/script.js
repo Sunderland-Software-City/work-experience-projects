@@ -154,39 +154,6 @@ document.getElementById("addPersonForm").onsubmit = async (e) => {
   }
 };
 
-// Function to handle the spin button and select a random person
-// document.getElementById("spinBtn").onclick = () => {
-//   if (isSpinning || teaPreferences.length === 0) return;
-
-//   isSpinning = true;
-//   const wheel = document.getElementById("nameWheel");
-//   const sliceAngle = 360 / teaPreferences.length;
-
-//   // Get random winner
-//   const randomId = Math.floor(Math.random() * teaPreferences.length);
-
-//   // Calculate the fixed rotation point for pointer alignment
-//   // Multiply by -1 to rotate clockwise
-//   const spinRotations = 6; // Number of full spins
-//   const baseRotation = spinRotations * 360; // Degrees for full spins
-//   const targetSlicePosition = -1 * (randomId * sliceAngle) + 90; // Negative for clockwise
-
-//   // Reset current rotation to avoid accumulation
-//   currentRotation = baseRotation + targetSlicePosition;
-
-//   wheel.style.transform = `rotate(${currentRotation}deg)`;
-
-//   setTimeout(() => {
-//     isSpinning = false;
-//     const winner = teaPreferences[randomId];
-//     document.getElementById("selectedPerson").textContent = winner.name;
-//     document.getElementById("preferenceDisplay").textContent = `Preferences: ${
-//       winner.sugar
-//     } sugar${winner.sugar !== 1 ? "s" : ""}, ${
-//       winner.milk ? "with" : "without"
-//     } milk`;
-//   }, 3000);
-// };
 document.getElementById("spinBtn").onclick = () => {
   if (isSpinning || teaPreferences.length === 0) return;
 
