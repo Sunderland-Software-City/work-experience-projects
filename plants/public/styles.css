@@ -144,18 +144,21 @@ button:hover {
 }
 
 #search-results {
+	background-color: white;
 	display: grid;
 	gap: 1.25rem;
 	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 	margin-top: 1.25rem;
 	padding: 1rem;
-	background-color: #f0f4f8;
 	border-radius: 0.5rem;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+	& h3 {
+		font-size: 1.5rem;
+	}
 }
 
 #search-results .result-item {
-	background-color: #ffffff;
+	background-color: silver;
 	border-radius: 0.5rem;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	overflow: hidden;

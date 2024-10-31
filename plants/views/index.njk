@@ -17,11 +17,6 @@
         <input type="text" id="plant-search" name="plant" placeholder="Enter plant name" required/>
         <button type="submit">Search</button>
       </form>
-      {# <section id="my-collection">
-                                        <h4>Your Collection:</h4>
-                                        <!-- Users plant collection will be dynamically added here -->
-                            </section> #}
-      <section class="PlantCards">
         <ul id="plants-container">
           {% for plant in plants %}
             <li class="plant-item">
@@ -34,7 +29,6 @@
             </li>
           {% endfor %}
         </ul>
-      </section>
       {% if page == 'searchResult' %}
         <section id="search-results">
           <h3>{{ title }}</h3>
@@ -63,5 +57,7 @@
         </section>
       {% endif %}
     </div>
+		</main>
   </body>
-</html></body></html></main><script src="script.js" type="module"></script></body></html>
+	<script src="script.js" type="module"></script>
+</html>
