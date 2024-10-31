@@ -12,35 +12,8 @@ const appRoutes = express.Router();
 
 // Route to render a list of plants
 appRoutes.get('/', async (req, res, next) => {
-	const { plant } = req.query;
-	console.log(plant, 'web');
-	if (plant) {
-		console.log('here', plant, plant);
-		try {
-			const plants = await getAllPlants(plant);
-			console.log('plants', plants);
-			return res.render('index.njk', {
-				title: 'Search results:',
-				page: 'searchResult',
-				plants,
-			});
-		} catch (error) {
-			console.error('Error fetching plants:', error);
-			return res.status(500).send('Error fetching plants.');
-		}
-	}
-
-	try {
-		const plants = await getAllPlants(); // Call getAllPlants directly
-		res.render('index.njk', {
-			title: 'Plants List',
-			page: 'plants',
-			plants, // Pass the fetched plants directly
-		});
-	} catch (error) {
-		console.error('Error fetching plants:', error);
-		res.status(500).send('Error fetching plants.');
-	}
+	// TODO: use the provided function to return the plant data
+	// and render your njk file(s)
 });
 
 export default appRoutes;

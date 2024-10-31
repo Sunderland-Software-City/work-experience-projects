@@ -18,44 +18,9 @@
         <button type="submit">Search</button>
       </form>
         <ul id="plants-container">
-          {% for plant in plants %}
-            <li class="plant-item">
-              <img class="plant-image" src="{{ plant.image_url }}" alt="{{ plant.common_name }}" width="100"/>
-              <h3>{{ plant.common_name }}</h3>
-              <em>{{ plant.scientific_name }}</em>
-              <p>Year: {{ plant.year }}</p>
-              <p>Bibliography:{{ plant.bibligography }}</p>
-              <p>Family: {{ plant.family }}</p>
-            </li>
-          {% endfor %}
+          {# TODO: Create a list of plants - once you have returned them from the supplied functions #}
         </ul>
-      {% if page == 'searchResult' %}
-        <section id="search-results">
-          <h3>{{ title }}</h3>
-          <div class="result-item">
-            {% if plants %}
-              <img src="{{ plants.image_url }}" alt="{{ plant.common_name }}"/>
-              <p>
-                <strong>Common Name:</strong>
-                {{ plants.common_name }}</p>
-              <p>
-                <strong>Scientific Name:</strong>
-                {{ plants.scientific_name }}</p>
-              <p>
-                <strong>Year:</strong>
-                {{ plants.year }}</p>
-              <p>
-                <strong>Bibliography:</strong>
-                {{ plants.bibliography }}</p>
-              <p>
-                <strong>Family:</strong>
-                {{ plants.family }}</p>
-            {% else %}
-              <p>Plant data is not available.</p>
-            {% endif %}
-          </div>
-        </section>
-      {% endif %}
+      {# If you implement a search functionality - consider a conditional statement #}
     </div>
 		</main>
   </body>
