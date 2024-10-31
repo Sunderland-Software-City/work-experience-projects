@@ -1,4 +1,4 @@
-import { teaPreferences } from "./shared.js";
+import { teaPreferences } from "../script.js";
 import { removePerson } from "./removePerson.js";
 
 // Function to update the preferences list displayed in the DOM

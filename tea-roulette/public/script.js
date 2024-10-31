@@ -1,34 +1,48 @@
-import { spinWheel } from "./components/spinWheel.js"; // Import the spin function
-import { addPerson } from "./components/addPerson.js"; // Import the addPerson function
-import { loadPreferences } from "./components/loadPreferences.js"; // Import the loadPreferences function
-import { removeAllPeople } from "./components/removeAllPeople.js"; // Import the removeAllPeople function
-import { removePerson } from "./components/removePerson.js"; // Import the removePerson function
+import { spinWheel } from "./components/spinWheel.js";
+import { addPerson } from "./components/addPerson.js";
+import { removeAllPeople } from "./components/removeAllPeople.js";
+import { removePerson } from "./components/removePerson.js";
+import { updateNameWheel } from "./components/updateNameWheel.js";
+import { updatePreferencesList } from "./components/updatePreferencesList.js";
+import { showError } from "./components/showError.js";
 
-// Initialize Bootstrap modal for adding a person
+export const teaPreferences = []; // Array to store preferences
+export let isSpinning = false;
+export let currentRotation = 0;
+async function loadPreferences() {
+  try {
+    const response = await fetch("/api/preferences");
+    teaPreferences = await response.json();
+    updateNameWheel(); // Updates the visual representation of the wheel
+    updatePreferencesList(); // Updates the preferences list displayed
+  } catch (error) {
+    console.error("Error loading preferences:", error);
+    showError("Error loading preferences");
+  }
+}
 const modal = new bootstrap.Modal(document.getElementById("addPersonModal"));
-const addPersonBtn = document.getElementById("addPersonBtn"); // Get the button to open the modal
-const removeAllBtn = document.getElementById("removeAllBtn"); // Get the button to remove all preferences
+const addPersonBtn = document.getElementById("addPersonBtn");
+const removeAllBtn = document.getElementById("removeAllBtn");
 
-// Show the modal when the button is clicked
 addPersonBtn.onclick = () => modal.show();
 
-// Attach the addPerson function to form submission
 document.getElementById("addPersonForm").onsubmit = async (e) => {
-  e.preventDefault(); // Prevent default form submission behavior
-  const newPerson = {
-    id: Date.now().toString(), // Use current timestamp as a unique ID
-    name: document.getElementById("nameInput").value, // Get the name from input field
-    sugar: parseInt(document.getElementById("sugarInput").value), // Get the sugar amount and convert it to an integer
-    milk: document.getElementById("milkInput").checked, // Get the milk preference (true or false)
-  };
-  await addPerson(newPerson); // Call the addPerson function to add the new person
+  e.preventDefault();
+  await addPerson(e, teaPreferences, isSpinning, currentRotation);
 };
 
-// Set the click event for the remove all button
-removeAllBtn.onclick = removeAllPeople;
+removeAllBtn.onclick = () => removeAllPeople(teaPreferences);
 
-// Initialize the spin button click event
-document.getElementById("spinBtn").onclick = spinWheel;
+document
+  .getElementById("preferencesList")
+  .addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-person-btn")) {
+      const personId = event.target.dataset.id;
+      removePerson(personId, teaPreferences);
+    }
+  });
 
-// Initial load of preferences on page load
-loadPreferences(); // Call the loadPreferences function to load preferences when the page is first opened
+document.getElementById("spinBtn").onclick = () => spinWheel(teaPreferences);
+
+// Call loadPreferences when the page loads
+loadPreferences();

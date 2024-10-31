@@ -1,6 +1,5 @@
-import { teaPreferences } from "./shared.js";
-
 // Function to update the wheel display with names and slices
+import { teaPreferences } from "../script";
 export function updateNameWheel() {
   const wheel = document.getElementById("nameWheel"); // Get the wheel element
   wheel.innerHTML = ""; // Clear the current contents of the wheel

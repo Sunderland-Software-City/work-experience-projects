@@ -1,4 +1,3 @@
-import { teaPreferences } from "./shared.js";
 import { updateNameWheel } from "./updateNameWheel.js";
 import { updatePreferencesList } from "./updatePreferencesList.js";
 import { showError } from "./showError.js";

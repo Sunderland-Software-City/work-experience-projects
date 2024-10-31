@@ -1,35 +1,33 @@
-import { teaPreferences } from "./shared.js";
 import { updateNameWheel } from "./updateNameWheel.js";
 import { updatePreferencesList } from "./updatePreferencesList.js";
 import { showError } from "./showError.js";
-// Function to remove a specific person based on id
-export async function removePerson(id) {
-  if (isSpinning) return; // Prevent removing if the wheel is currently spinning
+
+export async function removePerson(id, teaPreferences) {
+  if (isSpinning) return;
 
   try {
     const response = await fetch(`/api/preferences/${id}`, {
-      // Send a DELETE request to remove the preference
       method: "DELETE",
     });
 
     if (response.ok) {
-      // Check if the response was successful
-      teaPreferences = await response.json(); // Update teaPreferences with the response data
-      updateNameWheel(); // Refresh the wheel display after deletion
-      updatePreferencesList(); // Update the displayed list of preferences
+      const updatedPreferences = await response.json();
+      teaPreferences.length = 0;
+      teaPreferences.push(...updatedPreferences);
+      updateNameWheel();
+      updatePreferencesList();
 
       if (teaPreferences.length === 0) {
-        // If no preferences are left
         document.getElementById("selectedPerson").textContent =
-          "Nobody selected yet"; // Update the display
-        document.getElementById("preferenceDisplay").textContent = ""; // Clear the preference display
+          "Nobody selected yet";
+        document.getElementById("preferenceDisplay").textContent = "";
       }
     } else {
-      console.error("Error response:", response); // Log any error response
-      showError("Error removing person"); // Show an error message to the user
+      console.error("Error response:", response);
+      showError("Error removing person");
     }
   } catch (error) {
-    console.error("Error removing person:", error); // Log any errors that occur during deletion
-    showError("Error removing person"); // Show an error message to the user
+    console.error("Error removing person:", error);
+    showError("Error removing person");
   }
 }

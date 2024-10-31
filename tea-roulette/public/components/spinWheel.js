@@ -1,4 +1,3 @@
-import { teaPreferences } from "./shared.js"; // Import the preferences
 import { showError } from "./showError.js"; // Import error handling (if needed)
 
 // Variable to track if the wheel is currently spinning
