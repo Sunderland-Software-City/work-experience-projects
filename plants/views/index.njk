@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/styles.css"/>
+    <link rel="stylesheet" href="/semantic.css"/>
     <title>Plantly</title>
   </head>
   <body>
@@ -17,9 +18,9 @@
         <button type="submit">Search</button>
       </form>
       {# <section id="my-collection">
-                                  <h4>Your Collection:</h4>
-                                  <!-- Users plant collection will be dynamically added here -->
-                      </section> #}
+                                        <h4>Your Collection:</h4>
+                                        <!-- Users plant collection will be dynamically added here -->
+                            </section> #}
       <section class="PlantCards">
         <ul id="plants-container">
           {% for plant in plants %}

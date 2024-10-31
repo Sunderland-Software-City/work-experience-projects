@@ -21,9 +21,9 @@ header {
 
 h1 {
 	color: #2d6a4f;
-	font-size: 4rem;
 	text-decoration: underline;
 	text-transform: uppercase;
+	padding: 1rem;
 }
 
 main {
