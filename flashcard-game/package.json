@@ -1,0 +1,19 @@
+{
+	"name": "express-nunjucks",
+	"version": "1.0.0",
+	"description": "spike using nunjucks and express",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon  -e '*'"
+	},
+	"author": "shawnanuptra",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.21.1",
+		"nodemon": "^3.1.7",
+		"nunjucks": "^3.2.4"
+	}
+}
