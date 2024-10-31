@@ -17,54 +17,50 @@
         <button type="submit">Search</button>
       </form>
       {# <section id="my-collection">
-                      <h4>Your Collection:</h4>
-                      <!-- Users plant collection will be dynamically added here -->
-                  </section> #}
-      <div
-        class="PlantCards">
-        {# <h2>All Plants:</h2> #}
-        <section>
-          <ul id="plants-container">
-            {% for plant in plants %}
-              <li class="plant-item">
-                <img class="plant-image" src="{{ plant.image_url }}" alt="{{ plant.common_name }}" width="100"/>
-                <h3>{{ plant.common_name }}</h3>
-                <em>{{ plant.scientific_name }}</em>
-                <p>Year: {{ plant.year }}</p>
-                <p>Bibliography:{{ plant.bibligography }}</p>
-                <p>Family: {{ plant.family }}</p>
-              </li>
-            {% endfor %}
-          </ul>
+                                  <h4>Your Collection:</h4>
+                                  <!-- Users plant collection will be dynamically added here -->
+                      </section> #}
+      <section class="PlantCards">
+        <ul id="plants-container">
+          {% for plant in plants %}
+            <li class="plant-item">
+              <img class="plant-image" src="{{ plant.image_url }}" alt="{{ plant.common_name }}" width="100"/>
+              <h3>{{ plant.common_name }}</h3>
+              <em>{{ plant.scientific_name }}</em>
+              <p>Year: {{ plant.year }}</p>
+              <p>Bibliography:{{ plant.bibligography }}</p>
+              <p>Family: {{ plant.family }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% if page == 'searchResult' %}
+        <section id="search-results">
+          <h3>{{ title }}</h3>
+          <div class="result-item">
+            {% if plants %}
+              <img src="{{ plants.image_url }}" alt="{{ plant.common_name }}"/>
+              <p>
+                <strong>Common Name:</strong>
+                {{ plants.common_name }}</p>
+              <p>
+                <strong>Scientific Name:</strong>
+                {{ plants.scientific_name }}</p>
+              <p>
+                <strong>Year:</strong>
+                {{ plants.year }}</p>
+              <p>
+                <strong>Bibliography:</strong>
+                {{ plants.bibliography }}</p>
+              <p>
+                <strong>Family:</strong>
+                {{ plants.family }}</p>
+            {% else %}
+              <p>Plant data is not available.</p>
+            {% endif %}
+          </div>
         </section>
-        {% if page == 'searchResult' %}
-          <section id="search-results">
-            <h3>{{ title }}</h3>
-            <div class="result-item">
-              {% if plants %}
-                <img src="{{ plants.image_url }}" alt="{{ plant.common_name }}"/>
-                <p>
-                  <strong>Common Name:</strong>
-                  {{ plants.common_name }}</p>
-                <p>
-                  <strong>Scientific Name:</strong>
-                  {{ plants.scientific_name }}</p>
-                <p>
-                  <strong>Year:</strong>
-                  {{ plants.year }}</p>
-                <p>
-                  <strong>Bibliography:</strong>
-                  {{ plants.bibliography }}</p>
-                <p>
-                  <strong>Family:</strong>
-                  {{ plants.family }}</p>
-              {% else %}
-                <p>Plant data is not available.</p>
-              {% endif %}
-            </div>
-          </section>
-        {% endif %}
-      </div>
-    </body>
+      {% endif %}
+    </div>
   </body>
-</html></main><script src="script.js" type="module"></script></body></html>
+</html></body></html></main><script src="script.js" type="module"></script></body></html>

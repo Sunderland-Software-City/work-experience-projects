@@ -8,3 +8,5 @@ const addToCollection = (plant) => {
 	const myCollection = document.getElementById('my-collection');
 	myCollection.innerHTML += `<p>${plant.common_name}</p>`;
 };
+
+
