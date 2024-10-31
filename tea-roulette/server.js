@@ -1,95 +1,74 @@
 // Importing necessary modules
 const express = require("express");
-const fs = require("fs").promises;
-const path = require("path");
+const session = require("express-session");
+const FileStore = require("session-file-store")(session);
 
 const app = express();
 const port = 3000;
 
-// Middleware to serve static files and parse JSON request bodies
-app.use(express.static("public"));
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+    },
+    store: new FileStore(), // or Redis/MongoDB for unique session management in production
+  })
+);
+
+// Middleware to parse JSON request bodies
 app.use(express.json());
 
-// Path to the data file
-const dataPath = path.join(__dirname, "public", "data.json");
+// Serve static files from the 'public' directory
+app.use(express.static("public"));
 
-// Function to ensure data file exists and resets it to an empty array on each server start
-async function ensureDataFile() {
-  try {
-    // Overwrite data.json with an empty array each time server starts
-    await fs.writeFile(dataPath, "[]");
-  } catch (error) {
-    console.error("Error ensuring data file:", error);
-  }
-}
+// GET route to retrieve preferences for the current user session
+app.get("/api/preferences", (req, res) => {
+  // Return an empty array for each session
+  req.session.teaPreferences = [];
 
-// Call the ensureDataFile function once to reset data on server start
-ensureDataFile();
-
-// GET route to retrieve all preferences
-app.get("/api/preferences", async (req, res) => {
-  try {
-    const data = await fs.readFile(dataPath, "utf8");
-    res.json(JSON.parse(data));
-  } catch (error) {
-    res.status(500).json({ error: "Error reading preferences" });
-  }
+  res.json(req.session.teaPreferences);
 });
 
-// POST route to add a new tea preference
-app.post("/api/preferences", async (req, res) => {
-  try {
-    const data = await fs.readFile(dataPath, "utf8");
-    const preferences = JSON.parse(data);
+// POST route to add a new tea preference for the current user session
+app.post("/api/preferences", (req, res) => {
+  const { name, sugar, milk } = req.body;
 
-    const { name, sugar, milk } = req.body;
-
-    // Validate input
-    if (!name || typeof sugar !== "number" || typeof milk !== "boolean") {
-      return res.status(400).json({ error: "Invalid input data" });
-    }
-
-    // Add the new preference
-    preferences.push({ id: Date.now().toString(), name, sugar, milk });
-    await fs.writeFile(dataPath, JSON.stringify(preferences, null, 2));
-    res.json(preferences);
-  } catch (error) {
-    res.status(500).json({ error: "Error adding preference" });
+  // Validate input
+  if (!name || typeof sugar !== "number" || typeof milk !== "boolean") {
+    return res.status(400).json({ error: "Invalid input data" });
   }
+
+  let teaPreferences = req.session.teaPreferences || [];
+  teaPreferences.push({ id: Date.now().toString(), name, sugar, milk });
+  req.session.teaPreferences = teaPreferences;
+  res.json(teaPreferences);
 });
 
 // DELETE route to remove all preferences
-app.delete("/api/preferences/all", async (req, res) => {
-  try {
-    await fs.writeFile(dataPath, "[]"); // Reset the file to an empty array
-    res.json([]);
-  } catch (error) {
-    res.status(500).json({ error: "Error deleting all preferences" });
-  }
+app.delete("/api/preferences/all", (req, res) => {
+  req.session.teaPreferences = [];
+  res.json([]);
 });
 
-// DELETE route to remove a specific preference by its index
-app.delete("/api/preferences/:index", async (req, res) => {
-  try {
-    const data = await fs.readFile(dataPath, "utf8");
-    const preferences = JSON.parse(data);
-    const index = parseInt(req.params.index);
+// DELETE route to remove a specific preference by its index for the current user session
+app.delete("/api/preferences/:index", (req, res) => {
+  const index = parseInt(req.params.index);
+  let teaPreferences = req.session.teaPreferences || [];
 
-    // Validate the index
-    if (isNaN(index) || index < 0 || index >= preferences.length) {
-      return res.status(400).json({ error: "Invalid index" });
-    }
-
-    // Remove the preference at the specified index
-    preferences.splice(index, 1);
-    await fs.writeFile(dataPath, JSON.stringify(preferences, null, 2));
-    res.json(preferences);
-  } catch (error) {
-    res.status(500).json({ error: "Error removing person" });
+  // Validate the index
+  if (isNaN(index) || index < 0 || index >= teaPreferences.length) {
+    return res.status(400).json({ error: "Invalid index" });
   }
+  // Remove the preference at the specified index
+  teaPreferences.splice(index, 1);
+  req.session.teaPreferences = teaPreferences;
+  res.json(teaPreferences);
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
