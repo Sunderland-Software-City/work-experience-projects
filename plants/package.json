@@ -1,0 +1,26 @@
+{
+  "name": "plants",
+  "version": "1.0.0",
+  "description": "express server for plants project",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sunderland-Software-City/work-experience-projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sunderland-Software-City/work-experience-projects/issues"
+  },
+  "homepage": "https://github.com/Sunderland-Software-City/work-experience-projects#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "nunjucks": "^3.2.4"
+  }
+}
