@@ -7,8 +7,7 @@
 `cd tea-roulette`
 `npm install`
 `npm install express`
-`npm install express-session`
-`npm install session-file-store`
+` npm install nunjucks`
 `npm install bootstrap`
 
 ###### Ticket:
@@ -49,7 +48,7 @@ Goal:
 
 ##### Ticket:
 
-- Complete TODO's inside the script.js to handle list updates and the addition of new people.
+- Complete TODO's inside the script.mjs to handle list updates and the addition of new people.
 - Display the selected tea maker on screen after the spin is complete.
 
 ## Phase 5: Testing and Performance Enhancements

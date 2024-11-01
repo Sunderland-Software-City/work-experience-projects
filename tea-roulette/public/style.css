@@ -21,7 +21,7 @@
 .name-wheel {
   width: 100%;
   height: 100%;
-  border: 1px solid #ffffff;
+  border: 1px solid #ffffff1f;
   border-radius: 50%;
   position: relative;
   transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -75,5 +75,5 @@
   background-color: rgb(255, 188, 218);
 }
 .card {
-  background-color: rgb(252, 233, 240);
+  background-color: rgb(250, 239, 243);
 }

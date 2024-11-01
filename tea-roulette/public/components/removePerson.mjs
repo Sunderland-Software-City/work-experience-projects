@@ -1,8 +1,12 @@
-import { updateNameWheel } from "./updateNameWheel.js";
-import { updatePreferencesList } from "./updatePreferencesList.js";
-import { showError } from "./showError.js";
-
-export async function removePerson(id, teaPreferences) {
+// removePerson.mjs
+export async function removePerson(
+  teaPreferences,
+  id,
+  isSpinning,
+  updatePreferencesList,
+  updateNameWheel,
+  showError
+) {
   if (isSpinning) return;
 
   try {
@@ -11,11 +15,11 @@ export async function removePerson(id, teaPreferences) {
     });
 
     if (response.ok) {
-      const updatedPreferences = await response.json();
-      teaPreferences.length = 0;
-      teaPreferences.push(...updatedPreferences);
-      updateNameWheel();
-      updatePreferencesList();
+      // Remove the person from the teaPreferences array directly
+      teaPreferences.splice(id, 1); // Remove item at index 'id'
+
+      updateNameWheel(teaPreferences); // Pass teaPreferences here
+      updatePreferencesList(); // Refresh the preferences list
 
       if (teaPreferences.length === 0) {
         document.getElementById("selectedPerson").textContent =
