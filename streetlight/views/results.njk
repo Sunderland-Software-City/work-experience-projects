@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streetlight Results</title>
+</head>
+<body>
+  <h1>Streetlight Results</h1>
+  <ul>
+    {% for streetlight in response %}
+      <li>
+        <p>ID: {{ streetlight.id }}</p>
+        <p>Street: {{ streetlight.street }}</p>
+        <p>Latitude: {{ streetlight.latitude }}</p>
+        <p>Longitude: {{ streetlight.longitude }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

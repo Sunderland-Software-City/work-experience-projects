@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streetlight Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="streetlightDetails">
+        <h1>Streetlight Details</h1>
+        <p><strong>ID:</strong> {{ streetlight.id }}</p>
+        <p><strong>Street:</strong> {{ streetlight.street }}</p>
+        <p><strong>Latitude:</strong> {{ streetlight.latitude.toFixed(6) }}</p>
+        <p><strong>Longitude:</strong> {{ streetlight.longitude.toFixed(6) }}</p>
+        <p><strong>Status:</strong> {{ streetlight.status }}</p>
+        <p><strong>Last Reported:</strong> {{ streetlight.lastReported }}</p>
+        <p><strong>Fixed:</strong> {{ streetlight.isFixed }}</p>
+        <p><strong>Report Count:</strong> {{ streetlight.reportCount }}</p>
+
+        <form action="/api/streetlight/{{ streetlight.id }}/report" method="POST">
+            <button type="submit" id="reportButton">Report Broken</button>
+        </form>
+    </div>
+
+    <a href="/">Back to Search</a>
+</body>
+</html>
