@@ -48,7 +48,7 @@ Goal:
 
 ##### Ticket:
 
-- Complete TODO's inside the script.mjs to handle list updates and the addition of new people.
+- Complete TODO's inside the script.mjs and other components inside the components folder.
 - Display the selected tea maker on screen after the spin is complete.
 
 ## Phase 5: Testing and Performance Enhancements

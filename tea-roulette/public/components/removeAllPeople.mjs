@@ -7,28 +7,24 @@ export async function removeAllPeople(
   updateNameWheel,
   showError
 ) {
+  // Exit the function if the wheel is spinning
   if (isSpinning) return;
 
+  // Confirm if the user really wants to remove all preferences
   if (!confirm("Are you sure you want to remove all people?")) return;
 
   try {
-    const response = await fetch("/api/preferences/all", {
-      method: "DELETE",
-    });
+    // TODO: Send a DELETE request to remove all preferences on the server
 
     if (response.ok) {
-      teaPreferences.length = 0; // Clear the teaPreferences array
-      updateNameWheel(teaPreferences); // Pass teaPreferences here
-      updatePreferencesList(); // Update preferences list
-      document.getElementById("selectedPerson").textContent =
-        "Nobody selected yet";
-      document.getElementById("preferenceDisplay").textContent = "";
+      // TODO: Clear the local teaPreferences array
+      // TODO: Update the name wheel UI to reflect empty preferences
+      // TODO: Update the preferences list in the UI
+      // TODO: Reset the display elements for the selected person and their preferences
     } else {
-      console.error("Error response:", response);
-      showError("Error removing all people");
+      // TODO: Log error and show error message if response is unsuccessful
     }
   } catch (error) {
-    console.error("Error removing all people:", error);
-    showError("Error removing all people");
+    // TODO: Log error and display error message if the fetch request fails
   }
 }

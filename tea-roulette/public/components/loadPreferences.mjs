@@ -5,17 +5,19 @@ export async function loadPreferences(
   updatePreferencesList
 ) {
   try {
+    // Send a GET request to the server to load tea preferences
     const response = await fetch("/api/preferences");
-    if (!response.ok) {
-      throw new Error("Failed to load preferences");
-    }
 
-    const data = await response.json();
-    teaPreferences.splice(0, teaPreferences.length, ...data); // Clear existing array and add new data
+    // TODO: Check if the response is successful; throw an error if it's not
 
-    updatePreferencesList(teaPreferences); // Call to update preferences list
+    // TODO: Parse the JSON response data
+
+    // Clear the existing teaPreferences array and add the new data
+    teaPreferences.splice(0, teaPreferences.length, ...data);
+
+    // Update the preferences list in the UI with the newly loaded data
+    updatePreferencesList(teaPreferences);
   } catch (error) {
-    console.error("Error loading preferences:", error);
-    showError("Error loading preferences");
+    // TODO: Catch any errors during the fetch request and display an error message
   }
 }
