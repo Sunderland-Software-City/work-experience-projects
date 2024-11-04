@@ -4,6 +4,7 @@ import homeRouter from './routes/homeRouter.js';
 import addNewRouter from './routes/addNewRouter.js';
 import flashcardRouter from './routes/flashcardRouter.js';
 import nunjucks from 'nunjucks';
+import 'dotenv/config';
 
 const app = express();
 
