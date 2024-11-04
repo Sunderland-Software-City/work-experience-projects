@@ -6,9 +6,6 @@
 
 `cd tea-roulette`
 `npm install`
-`npm install express`
-` npm install nunjucks`
-`npm install bootstrap`
 
 ###### Ticket:
 

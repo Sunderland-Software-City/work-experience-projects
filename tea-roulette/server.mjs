@@ -58,27 +58,15 @@ app.get("/api/preferences", (req, res) => {
 app.post("/api/preferences", (req, res) => {
   // TODO: Extract the name, sugar, and milk properties from the request body
 
-  // TODO: Validate input to ensure correct data types and presence of required fields
+  // TODO: Validate input to ensure correct data types and presence of required fields. Send an error response if validation fails
 
-  // TODO: Send an error response if validation fails
-
-  // TODO: Retrieve the current preferences from the JSON file
   // TODO: Create a new preference object with a unique ID and add it to the preferences array
-  // TODO: Add new preference to the array
-  // TODO: Write the updated preferences array to the JSON file
+
   res.json(preferences); // Send updated preferences as JSON response
 });
 
 // DELETE route to remove all preferences
 app.delete("/api/preferences/:index", (req, res) => {
-  // TODO: Parse the index from the route parameters
-
-  // TODO: Retrieve the current preferences from the JSON file
-
-  // TODO: Validate the index to ensure it's a valid number and within array bounds
-
-  // TODO: Send an error response if the index is invalid
-
   // TODO: Remove the preference at the specified index
 
   // TODO: Write the updated preferences array back to the JSON file
