@@ -34,7 +34,9 @@ body {
 	font-size: 1.5rem;
 
 	/* animation */
-	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+	transition:
+		box-shadow ease-in 100ms,
+		transform ease-in 100ms;
 }
 
 .flashcard:hover {
@@ -60,7 +62,9 @@ body {
 	font-size: 1.125rem;
 
 	/* animation */
-	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+	transition:
+		box-shadow ease-in 100ms,
+		transform ease-in 100ms;
 
 	&:first-of-type {
 		margin-top: 1rem;
@@ -90,7 +94,9 @@ body {
 	font-size: 1.125rem;
 
 	/* animation */
-	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+	transition:
+		box-shadow ease-in 100ms,
+		transform ease-in 100ms;
 }
 
 .button--secondary:hover {

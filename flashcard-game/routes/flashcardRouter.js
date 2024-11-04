@@ -1,28 +1,28 @@
-import express from "express";
+import express from 'express';
 const router = express.Router();
 
 // show flashcard information
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
 	// todo: find flashcard from the app's flashcards with the same 'slug' as the url param
 	// hint: you can get url param by req.query.x, where x = name of the url query param
 	// todo: add all the information needed to render "flashcard.njk"
-	res.render("flashcard.njk", {});
+	res.render('flashcard.njk', {});
 });
 
 // start game
-router.get("/start", (req, res) => {
+router.get('/start', (req, res) => {
 	// todo: find flashcard from the app's flashcards with the same 'slug' as the url param
 
 	// todo: get current questionIndex from app's locals
 
 	// todo: render the question based on the questionIndex
 	// hint: check the structure of the flashcard object from the app's locals state in index.js
-	res.render("start.njk", { question: "todo: replace me with the actual question!" });
+	res.render('start.njk', { question: 'todo: replace me with the actual question!' });
 });
 
 // check user guess
 // check user guess
-router.post("/start", (req, res) => {
+router.post('/start', (req, res) => {
 	// todo: get the answer of the user input
 	// todo: get the answer of the current question using the app's questionIndex
 
@@ -36,25 +36,25 @@ router.post("/start", (req, res) => {
 		// todo: increment the app's correctAnswersCount
 
 		// todo: render "answer.njk", with all the correct properties
-		res.render("answer.njk", {
-			slug: "",
-			correctAnswer: "",
-			userAnswer: "",
-			correct: "",
-			finished: "",
-			totalQuestions: "",
-			correctAnswersCount: "",
+		res.render('answer.njk', {
+			slug: '',
+			correctAnswer: '',
+			userAnswer: '',
+			correct: '',
+			finished: '',
+			totalQuestions: '',
+			correctAnswersCount: '',
 		});
 	} else {
 		// todo: render "answer.njk", with all the correct properties
-		res.render("answer.njk", {
-			slug: "",
-			correctAnswer: "",
-			userAnswer: "",
-			correct: "",
-			finished: "",
-			totalQuestions: "",
-			correctAnswersCount: "",
+		res.render('answer.njk', {
+			slug: '',
+			correctAnswer: '',
+			userAnswer: '',
+			correct: '',
+			finished: '',
+			totalQuestions: '',
+			correctAnswersCount: '',
 		});
 	}
 
