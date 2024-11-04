@@ -5,7 +5,7 @@ import addNewRouter from "./routes/addNewRouter.js";
 import flashcardRouter from "./routes/flashcardRouter.js";
 import nunjucks from "nunjucks";
 
-const PORT = 1234;
+const APP_PORT = process.env.APP_PORT ?? 3000;
 const app = express();
 
 app.use(
@@ -50,6 +50,6 @@ nunjucks.configure("views", {
 	express: app,
 });
 
-app.listen(PORT, () => {
-	console.log("App is listening at port: ", PORT);
+app.listen(APP_PORT, () => {
+	console.log("App is listening at port: ", APP_PORT);
 });
