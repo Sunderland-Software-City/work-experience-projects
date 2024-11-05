@@ -18,18 +18,18 @@ function updatePreferencesList() {
   const list = document.getElementById("preferencesList");
   list.innerHTML = ""; // Clear the current list
 
-  // TODO: Loop through teaPreferences array and create list items for each preference
+  // Loop through teaPreferences array and create list items for each preference
   teaPreferences.forEach((pref, id) => {
     const item = document.createElement("div");
     item.className =
       "list-group-item list-group-item-action preference-item d-flex justify-content-between align-items-center";
 
-    // TODO: Create a delete button for each preference item
+    // Create a delete button for each preference item
     const deleteButton = document.createElement("button");
     deleteButton.className = "btn btn-danger btn-sm";
     deleteButton.innerHTML = '<i class="bi bi-x-lg"></i>';
 
-    // TODO: Add event listener to the delete button for removing a person
+    // TODO: Complete the event listener to the delete button for removing a person
     deleteButton.addEventListener("click", () => {
       removePerson();
     });
@@ -45,11 +45,18 @@ const modal = new bootstrap.Modal(document.getElementById("addPersonModal"));
 const addPersonBtn = document.getElementById("addPersonBtn");
 const removeAllBtn = document.getElementById("removeAllBtn");
 
-// TODO: Show the modal when add button is clicked
+//  Show the modal when add button is clicked
 addPersonBtn.onclick = () => modal.show();
 
-// TODO: Add event listener to the remove all button to delete all preferences
-removeAllBtn.onclick = () => removeAllPeople();
+//A dd event listener to the remove all button to delete all preferences
+removeAllBtn.onclick = () =>
+  removeAllPeople(
+    teaPreferences,
+    isSpinning, // Pass the isSpinning state
+    updatePreferencesList,
+    updateNameWheel,
+    showError
+  );
 
 // TODO: Define a function to handle adding a new person from the form
 

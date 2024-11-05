@@ -23,6 +23,7 @@ export function spinWheel(teaPreferences, wheel, setSelectedPerson) {
   const finalRotation = baseRotation + targetSlicePosition; // Total degrees to rotate
 
   // TODO: Start the spin with the CSS transition using requestAnimationFrame for smoother animation
+
   requestAnimationFrame(() => {
     wheel.style.transition = ""; // Restore the CSS transition property to enable smooth rotation
     // Apply the final rotation value to the wheel's transform style
