@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Add new</title>
+		<link rel="stylesheet" href="../globals.css"/>
+	</head>
+	<body>
+		<h1 class="title">Add New Flashcard</h1>
+		<form method="post" action="/add-new" class="form" id="form">
+			<label class="bold">
+				Flashcard name
+				<input required type="text" name="name" value="{{ name }}"/>
+			</label>
+			<div class="form-questions" id="form-questions">
+				{% for question in questions %}
+					<label class="bold">
+					Question
+					<input required type="text" name="questions" value="{{ question.q }}"/>
+					</label>
+
+					<label class="bold">
+					Answer
+					<input required type="text" name="answers" value="{{ question.a }}"/>
+					</label>
+				{% else %}
+
+					<label class="bold">
+					Question
+					<input required type="text" name="questions"/>
+					</label>
+
+					<label class="bold">
+					Answer
+					<input required type="text" name="answers"/>
+					</label>
+				{% endfor %}
+				<label class="bold">
+					Question
+					<input required type="text" name="questions"/>
+				</label>
+
+				<label class="bold">
+					Answer
+					<input required type="text" name="answers"/>
+				</label>
+			</div>
+
+			<button class="button--secondary bold" type="submit" formaction="/add-new/add-question">Add another question/answer</button>
+
+			<button class="button--primary bold" type="submit">Create Flash Card</button>
+		</form>
+	</body>
+</html>
