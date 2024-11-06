@@ -4,6 +4,8 @@
   "description": "express server for plants project",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./index.mjs",
+    "start": "node ./index.mjs",
     "test": "start"
   },
   "repository": {
@@ -23,5 +25,8 @@
     "gulp": "^5.0.0",
     "nodemon": "^3.1.7",
     "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
