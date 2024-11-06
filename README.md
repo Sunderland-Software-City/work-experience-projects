@@ -1,6 +1,8 @@
 # Work experience projects
 
-Monorepo with multiple server instances for the users to choose from.
+Here are a collection of different projects for you to choose from and complete. 
+
+There are comments throughout to give you hints.
 
 ## Installation and setup
 
@@ -14,9 +16,7 @@ git clone https://github.com/Sunderland-Software-City/work-experience-projects.g
 cd work-experience-projects
 ```
 
-```bash
-npm install
-```
+cd into your chosen project 
 
 ## Technologies
 
@@ -32,3 +32,4 @@ npm install
 
 1. Have Node installed. Run `node -v` in your terminal to check if Node is installed in your system.
 2. Have `git` installed. Run `git -v` in your terminal to check if `git` is installed in your system.
+
